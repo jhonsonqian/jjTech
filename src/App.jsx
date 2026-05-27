@@ -6,11 +6,11 @@ const dictionary = {
   zh: {
     htmlLang: 'zh-CN',
     nav: {
-      atelier: 'Atelier',
-      workflow: 'Workflow',
-      edition: 'Edition',
-      savoir: 'Savoir-Faire',
-      maison: 'Maison',
+      atelier: '工坊',
+      workflow: '工作流',
+      edition: '典藏',
+      savoir: '工艺',
+      maison: '宅邸',
     },
     header: {
       brand: 'JJTECH',
