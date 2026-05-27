@@ -263,12 +263,48 @@ a {
 /* ─────────────────────────────────────────────  Hero  ───────────────────────────────────────────── */
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: calc(100vh - 88px);
   padding: clamp(80px, 12vh, 140px) clamp(24px, 6vw, 120px) clamp(80px, 14vh, 160px);
   border-bottom: 1px solid var(--hairline);
+  isolation: isolate;
+  background-color: #1a1410;
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero::before {
+  background-image: url('/images/hero-leather.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(80%) brightness(82%);
+}
+
+.hero::after {
+  background:
+    linear-gradient(180deg, rgba(10, 8, 6, 0.42) 0%, rgba(10, 8, 6, 0.18) 45%, rgba(10, 8, 6, 0.72) 100%),
+    radial-gradient(ellipse at 22% 38%, rgba(10, 8, 6, 0) 0%, rgba(10, 8, 6, 0.32) 65%);
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero .eyebrow {
+  color: rgba(255, 240, 220, 0.88);
 }
 
 .hero h1 {
@@ -278,7 +314,8 @@ a {
   font-size: clamp(4.4rem, 14vw, 13rem);
   line-height: 0.92;
   letter-spacing: -0.035em;
-  color: var(--ink);
+  color: var(--paper);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
 }
 
 .hero h1 span {
@@ -288,7 +325,7 @@ a {
 .hero-lead {
   max-width: 540px;
   margin: 40px 0 0;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.82);
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   line-height: 1.85;
 }
@@ -299,6 +336,26 @@ a {
   align-items: center;
   gap: 28px;
   margin-top: 48px;
+}
+
+.hero .btn-primary {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+
+.hero .btn-primary:hover,
+.hero .btn-primary:focus-visible {
+  background: transparent;
+  color: var(--paper);
+}
+
+.hero .btn-link {
+  color: var(--paper);
+}
+
+.hero .btn-link::after {
+  background: var(--paper);
 }
 
 .btn-primary {
